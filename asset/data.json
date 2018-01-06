@@ -1,0 +1,26 @@
+[
+  {
+    "food": "Apple",
+    "delisiousness": "9"
+  },
+  {
+    "food": "Green Beans",
+    "delisiousness": "5"
+  },
+  {
+    "food": "Egg Salad Sandwich",
+    "delisiousness": "4"
+  },
+  {
+    "food": "Cookies",
+    "delisiousness": "10"
+  },
+  {
+    "food": "Vegemite",
+    "delisiousness": "0.2"
+  },
+  {
+    "food": "Burrito",
+    "delisiousness": "7"
+  }
+]
