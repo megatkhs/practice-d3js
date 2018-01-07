@@ -1,6 +1,12 @@
 @charset "UTF-8";
 
-#barGraph div.bar{
+section {
+  border: solid 1px #ecac00;
+  padding: 10px;
+  margin: 10px;
+}
+
+div.bar{
   display: inline-block;
   width: 20px;
   height: 300px;
