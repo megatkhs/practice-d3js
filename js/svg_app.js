@@ -1,7 +1,7 @@
 'use strict';
 
 function D3Graph(setting) {
-  let dataset = [10, 20, 17, 20, 23, 15, 15, 10, 10, 16, 26, 13, 3],
+  let dataset = [5, 10, 13, 19, 21, 25, 22, 18, 15, 13, 11, 12, 15, 20, 18, 17, 16, 18, 23, 25],
       svg = d3.select('#field').append('svg').attr('width', setting.w).attr('height', setting.h),
       circles = svg.selectAll('circle').data(dataset).enter().append('circle'),
       barChart = d3.select('#barChart').append('svg').attr('width', setting.w).attr('height', setting.h * 3),
@@ -30,6 +30,9 @@ function D3Graph(setting) {
   .attr('width', setting.w / dataset.length - barPadding)
   .attr('height', function(d){
     return d * 10;
+  })
+  .attr('fill', function(d){
+    return 'rgb(224, ' + (d * 5) + ', 0)';
   });
 
   console.log(dataset);
