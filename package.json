@@ -1,0 +1,23 @@
+{
+  "name": "practice-d3js",
+  "version": "1.0.0",
+  "description": "このリポジトリはmegatkhsがd3.jsの勉強をするためのものです。   \r おかしなコードがあったら教えてクレメンス",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/megatkhs/practice-d3js.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/megatkhs/practice-d3js/issues"
+  },
+  "homepage": "https://github.com/megatkhs/practice-d3js#readme",
+  "keywords": [],
+  "dependencies": {
+    "http-server": "^0.10.0"
+  }
+}
