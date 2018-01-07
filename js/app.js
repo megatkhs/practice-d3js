@@ -12,7 +12,7 @@ function D3Graph() {
         return '#0652e6';
       }
     });
-    d3.select('#barGraph').selectAll('div').data(json).enter().append('div').attr('class', 'bar')
+    d3.select('#barChart').selectAll('div').data(json).enter().append('div').attr('class', 'bar')
     .style('background', function(d){
       if(d['delisiousness'] > 5){
         return '#e0004a';
