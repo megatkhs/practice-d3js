@@ -94,7 +94,9 @@ div.bar{
   margin-right: 5px;
 }
 
-
+svg * {
+  shape-rendering: crispEdges;
+}
 
 .axis text {
   font-family: sans-serif;
