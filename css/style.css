@@ -7,6 +7,44 @@ html, body{
   height: 100%;
 }
 
+nav {
+  margin: 10px;
+}
+
+nav > ul {
+  list-style: none;
+  padding: 0;
+}
+
+nav li {
+  display: inline-block;
+  height: 60px;
+  width: 130px;
+  text-align: center;
+  line-height: 60px;
+  color: #fefefe;
+}
+
+nav li a {
+  display: inline-block;
+  line-height: 60px;
+  height: 60px;
+  width: 130px;
+  text-align: center;
+  text-decoration: none;
+  color: #fefefe;
+}
+
+nav li.now:before {
+  content: "";
+  display: block;
+  width: 0;
+  border-top: 10px solid #fefefe;
+  border-left: solid 15px transparent;
+  border-right: solid 15px transparent;
+  margin: 0 auto;
+}
+
 h1, h2, h3, h4, h5 {
   margin: 0;
   text-align: center;
