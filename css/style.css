@@ -94,7 +94,7 @@ div.bar{
   margin-right: 5px;
 }
 
-svg * {
+svg rect {
   shape-rendering: crispEdges;
 }
 
