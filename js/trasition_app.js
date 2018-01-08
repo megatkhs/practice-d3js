@@ -49,6 +49,8 @@ function D3Graph(setting) {
     svg.selectAll('rect')
        .data(dataset)
        .transition()
+       .duration(1000)
+       .ease(d3.easeExp)
        .attr('y', function(d){
          return h - yScale(d);
        })
@@ -61,6 +63,8 @@ function D3Graph(setting) {
     svg.selectAll('text')
        .data(dataset)
        .transition()
+       .duration(1000)
+       .ease(d3.easeExp)
        .text(function(d){
          return d;
        })
