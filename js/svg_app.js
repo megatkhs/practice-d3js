@@ -6,7 +6,8 @@ function D3Graph(setting) {
       circles = svg.selectAll('circle').data(dataset).enter().append('circle'),
       barChart = d3.select('#barChart').append('svg').attr('width', setting.w).attr('height', setting.h * 3),
       bars = barChart.selectAll('rect').data(dataset).enter().append('rect'),
-      barPadding = 10;
+      barPadding = 10,
+      text = barChart.selectAll('text').data(dataset).enter().append('text');
 
   circles.attr('cx', function(d, i){
     return (i * 50) + 25;
@@ -35,10 +36,17 @@ function D3Graph(setting) {
     return 'rgb(224, ' + (d * 5) + ', 0)';
   });
 
+  text.text(function(d){ return d; })
+  .attr('x', function(d, i){ return i * (setting.w / dataset.length) + (setting.w / dataset.length - barPadding)/2})
+  .attr('y', function(d){ return setting.h * 3 - d * 10 + 25})
+  .attr('text-anchor', 'middle')
+  .attr('font-family', 'sans-serif')
+  .attr('font-size', '11px')
+  .attr('fill', 'white');
   console.log(dataset);
 }
 
 let d3Graph = new D3Graph({
-  w: 1280,
+  w: 900,
   h: 100
 });
