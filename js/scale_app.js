@@ -1,19 +1,35 @@
 'use strict';
 
 function D3Graph(setting) {
-  let dataset = [[5, 20], [480, 90], [250, 50], [100, 33],  [330, 95], [410, 12], [475, 44], [25, 67], [85, 21], [220, 88]],
-      w = setting.w,
-      h = setting.h,
-      Xscale = d3.scaleLinear().domain([0, d3.max(dataset, function(d){ return d[0] })]).range([0, w]),
-      Yscale = d3.scaleLinear().domain([0, d3.max(dataset, function(d){ return d[1] })]).range([0, h]),
-      Rscale = d3.scaleLinear().domain([0, d3.max(dataset, function(d){ return d[1] })]).range([20, 5]),
-      svg = d3.select('#field').append('svg').attr('width', w).attr('height', h);
+  let dataset = [],
+  numDataPoints = 50,
+  xRange = Math.random() * 1000,
+  yRange = Math.random() * 1000;
+  for(let i = numDataPoints; i > 0; i--){
+    let x = Math.floor(Math.random() * xRange),
+    y = Math.floor(Math.random() * yRange);
+    dataset.push([x, y]);
+  }
 
-  console.log(Xscale(200));
-  console.log(Yscale(100));
-  svg.selectAll('circle').data(dataset).enter().append('circle').attr('cx', function(d){ return Xscale(d[0]); }).attr('cy', function(d){ return Yscale(d[1]); }).attr('r', function(d){ return Rscale(d[1]); });
-  svg.selectAll('text').data(dataset).enter().append('text').text(function(d){ return d; }).attr('x', function(d){ return Xscale(d[0]); }).attr('y', function(d){ return Yscale(d[1]); }).attr('fill', '#a1a1a1');
-  ;
+  let w = setting.w,
+      h = setting.h,
+      padding = 50,
+      xScale = d3.scaleLinear().domain([0, d3.max(dataset, function(d){ return d[0] })]).range([padding, w - padding]),
+      yScale = d3.scaleLinear().domain([0, d3.max(dataset, function(d){ return d[1] })]).range([h - padding, padding]),
+      rScale = d3.scaleLinear().domain([0, d3.max(dataset, function(d){ return d[1] })]).range([5, 20]),
+      svg = d3.select('#field').append('svg').attr('width', w).attr('height', h),
+      rand = d3.select('#random').append('svg').attr('width', w).attr('height', h);
+
+  svg.selectAll('circle').data(dataset).enter().append('circle').attr('cx', function(d){ return xScale(d[0]); }).attr('cy', function(d){ return yScale(d[1]); }).attr('r', function(d){ return rScale(d[1]); });
+  svg.selectAll('text').data(dataset).enter().append('text').text(function(d){ return d; }).attr('x', function(d){ return xScale(d[0]); }).attr('y', function(d){ return yScale(d[1]); }).attr('fill', '#a1a1a1');
+
+  let xAxis = d3.axisBottom(xScale).ticks(20, "s"),
+      yAxis = d3.axisLeft(yScale).ticks(10);
+
+  svg.append('g').attr('class', 'axis').attr('transform', 'translate(0, ' + (h - padding) + ')').call(xAxis);
+  svg.append('g').attr('class', 'axis').attr('transform', 'translate(' + padding + ', 0)').call(yAxis);
+
+
 }
 
 let d3Graph = new D3Graph({
